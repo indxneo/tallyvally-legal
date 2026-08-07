@@ -157,9 +157,10 @@ this statement.
   (per receipt) or **uninstall the app** (which removes the on-device database).
   We do not auto-expire your financial history.
 - **Your chat history** is kept on your device for a **retention window you
-  control** in Settings (default: **30 days**; options include longer windows and
-  **"Never delete"**). When a window is set, older messages are automatically
-  pruned on your device. You can also **clear all chat history** at any time.
+  control** in Settings (default: **30 days**; you can also choose **7 days** or
+  **"Never"**, which keeps it until you clear it). When a window is set, older
+  messages are automatically pruned on your device. You can also **clear all chat
+  history** at any time.
 - **Data sent to Google** for scanning/chat is retained or not retained according
   to Google's API terms for the tier in use (see Section 4). We keep no
   server-side copy ourselves.

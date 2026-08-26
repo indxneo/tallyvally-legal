@@ -6,7 +6,7 @@ title: Privacy Policy — Tally Vally
 # Privacy Policy — Tally Vally
 
 **Effective date:** July 22, 2026
-**Last updated:** July 22, 2026
+**Last updated:** August 26, 2026
 **Applies to:** the Tally Vally mobile app for iOS and Android.
 
 ---
@@ -27,7 +27,8 @@ title: Privacy Policy — Tally Vally
   share your data for advertising.
 - **You are in control.** You can delete any receipt, clear your chat history,
   set how long chat history is kept, turn on a stricter "aggregate-only" chat
-  privacy mode, or uninstall the app to remove all on-device data.
+  privacy mode, **export a copy of all your receipts to a file**, or uninstall the
+  app to remove all on-device data.
 
 ---
 
@@ -85,6 +86,14 @@ disclose **Payment Info** as data that can leave the device. We never send a ful
 card number, PIN, CVV, expiry, or bank-account number — those are not stored on
 the receipt and are not handled by the app.
 
+**Three small technical values travel with a scan, and none of them is a receipt
+field.** Your phone's **calendar date** is sent to Google along with the image, so
+that a receipt printing no date of its own is filed on *your* day rather than the
+server's. Your **home-currency setting** (for example `USD`) and a
+**free-or-premium flag** go only as far as our own proxy — the first so it can look
+up that day's exchange rate, the second so it can manage its own AI budget. None of
+the three identifies you, and only the date reaches Google.
+
 Receipt scanning is **user-initiated**: nothing is sent unless you choose to scan
 or upload a specific image.
 
@@ -119,13 +128,42 @@ otherwise.
 
 - We do **not** send your data to any advertiser, data broker, or analytics
   provider.
-- We do **not** upload your ledger, receipts, or database to any cloud backup or
-  sync service. (Android auto-backup of the app's data to Google Drive is
-  **disabled**; cross-device sync, if it is ever built, will be an explicit,
+- We do **not** upload your ledger, receipts, or database **to our servers, or to
+  any third-party backup or sync service.** We have no account system and no copy
+  of your data. (Cross-device sync, if it is ever built, will be an explicit,
   consented, opt-in feature governed by an updated version of this policy.)
-- We do **not** transmit crash logs or diagnostics off your device today. (If we
-  later add privacy-respecting crash reporting, this policy and the store labels
-  will be updated before it ships.)
+- **Your iPhone's own backup does include your receipts, and that is deliberate.**
+  Your receipts are stored in the app's own storage on your iPhone. If you use
+  iCloud Backup or back your phone up to a computer, they are included in that
+  backup along with your other app data, so that **replacing or losing your phone
+  does not destroy your records.** That backup is your own: it goes to your Apple
+  account, not to us, and we can never see it. Apple encrypts it, and if you turn
+  on Apple's **Advanced Data Protection** it is encrypted end-to-end so not even
+  Apple can read it; a computer backup with "Encrypt local backup" ticked never
+  involves Apple at all. If you would rather your receipts were not in any backup,
+  you can turn off iCloud Backup for Tally in **Settings › [your name] › iCloud**
+  on your iPhone. _(Android auto-backup to Google Drive remains **disabled** —
+  unlike Apple's, it offered no comparable user control at the time of writing.)_
+- **We do send crash reports, and only crash reports, to Firebase Crashlytics
+  (a Google service).** When the app crashes or hits an unexpected error, we
+  receive the technical details needed to fix it: the type of error, the line of
+  code it came from, your device model, and your iOS version. This is how a bug
+  that would otherwise silently lose your data gets found and fixed.
+  - **What a crash report never contains:** your receipts, your line items, your
+    store names, your totals, your card's last four digits, or your chat history.
+    Before any report leaves the app it passes through a filter that removes
+    long digit sequences (the shape of a card number) and access tokens.
+  - **There is no account attached**, because the app has none. Crashlytics
+    identifies the report only by a random per-install identifier, which tells us
+    that two crashes came from the same installation and nothing about who you
+    are. Deleting and reinstalling the app generates a new one.
+  - **It is not advertising or analytics.** We do not receive, and have not
+    enabled, any record of which screens you visit, what you tap, or how often you
+    use the app. Google Analytics for Firebase is **not** in this app.
+  - This replaces the previous statement that we transmit no diagnostics at all.
+    That statement was true, and it was true at a cost we judged too high: without
+    it we could not see a crash that happened on your phone, which meant shipping
+    an app that handles money while being unable to tell whether it was breaking.
 
 ## 4. How Google handles the data we send it
 
@@ -151,6 +189,15 @@ because we do not track). The iOS privacy manifest declares
 `NSPrivacyTracking = false` and an empty tracking-domains list, consistent with
 this statement.
 
+**The one third-party SDK in the app is Firebase Crashlytics, and it is here to
+report crashes, not to watch you.** We are naming it rather than hiding it behind
+the word "analytics", because it is a Google SDK and you are entitled to know it
+is there. What it is *not*: it records no screen views, no taps, no sessions, and
+no usage patterns, and it builds no profile. Firebase's own privacy manifest
+declares that it collects "Crash Data" and "Other Diagnostic Data", both **not
+linked to your identity** and both **not used for tracking** — which matches what
+we have enabled. Section 3d describes exactly what a report contains.
+
 ## 6. Data retention and deletion
 
 - **Your ledger and receipts** stay on your device until **you delete them**
@@ -164,8 +211,15 @@ this statement.
 - **Data sent to Google** for scanning/chat is retained or not retained according
   to Google's API terms for the tier in use (see Section 4). We keep no
   server-side copy ourselves.
-- **Uninstalling the app** deletes all on-device Tally Vally data. This cannot be
-  undone, because there is no cloud copy to restore from.
+- **Uninstalling the app** deletes all Tally Vally data on the device itself.
+- **One thing to know about backups.** Because your receipts are included in your
+  iPhone's backup (Section 3d), a copy can still exist inside a backup you made
+  earlier, even after you delete the app. That copy is in **your** Apple account or
+  on **your** computer, never ours, and we cannot see it or reach it. It goes when
+  the backup goes: delete the backup in **Settings › [your name] › iCloud › Manage
+  Account Storage › Backups**, or delete the backup file on your computer. If you
+  would rather no backup ever contains your receipts, turn Tally off in the same
+  iCloud settings screen before backing up.
 
 ## 7. Security
 
@@ -195,8 +249,7 @@ or photo library in the background.
 ## 9. Children
 
 Tally Vally is a general-audience financial tool and is **not directed to
-children.** We do not knowingly collect personal information from children. (Set
-the appropriate age rating in each store listing.)
+children.** We do not knowingly collect personal information from children.
 
 ## 10. International users and data transfer
 
@@ -218,6 +271,15 @@ chat features, you understand that this processing occurs as described here.
   Intelligence; when it is unavailable the app uses the cloud assistant described
   in Section 3b.
 - Turn on **Aggregate-only AI mode** to send only totals to the assistant.
+- **Take your records with you.** **Settings → Your data → Export your receipts**
+  writes every receipt and line item to a spreadsheet file (CSV) and hands it to
+  your phone's share sheet, so you can save it, mail it to yourself, or move it to
+  another phone, including a non-Apple one. The file is created on your device and
+  goes only where **you** send it; it never comes to us. **It contains the same
+  details the app shows you, including the card last-4 and payment method when a
+  receipt printed them**, so treat the exported file as you would a bank statement.
+  Once you have shared it, the copy you sent is governed by whatever app or service
+  you sent it to, not by this policy.
 - **Delete** individual receipts, **clear** chat history, or set chat history to
   **"Never"** / a short window.
 - **Uninstall** to remove all on-device data.

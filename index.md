@@ -1,19 +1,20 @@
 ---
 layout: default
-title: Privacy Policy — Tally Vally
+title: Privacy Policy — TallyVally
 ---
 
-# Privacy Policy — Tally Vally
+# Privacy Policy — TallyVally
 
 **Effective date:** July 22, 2026
 **Last updated:** August 26, 2026
-**Applies to:** the Tally Vally mobile app for iOS and Android.
+
+**Applies to:** the TallyVally mobile app for iOS and Android.
 
 ---
 
 ## The short version
 
-- **Your financial data lives on your device.** Tally Vally is an offline-first
+- **Your financial data lives on your device.** TallyVally is an offline-first
   expense tracker. Your receipts, line items, store names, dates, amounts, and
   the card last-4 / payment method shown on a receipt are stored **only on your
   phone**, in an on-device database.
@@ -34,17 +35,17 @@ title: Privacy Policy — Tally Vally
 
 ## 1. Who this policy is for and who we are
 
-This policy explains how the Tally Vally app ("the app", "Tally Vally") handles
+This policy explains how the TallyVally app ("the app", "TallyVally") handles
 your information. The app is published by Alisher Serikbayev ("we", "us",
 "the developer"). You can reach us about privacy at alishersv.dev@outlook.com.
 
-Tally Vally is a personal expense and asset tracker. Its design principle is
+TallyVally is a personal expense and asset tracker. Its design principle is
 **data sovereignty**: your financial history stays on your device by default, and
 anything that leaves the device is disclosed here.
 
 ## 2. Where your data lives
 
-Tally Vally stores your data in a local database (SQLite, via Drift) inside the
+TallyVally stores your data in a local database (SQLite, via Drift) inside the
 app's private storage on your device. This includes:
 
 - **Receipts and transactions** — store name, date, time, totals, subtotal, tax,
@@ -182,7 +183,7 @@ privacy documentation.
 
 ## 5. No tracking, no ads, no third-party analytics
 
-Tally Vally contains **no advertising SDKs, no behavioral-analytics SDKs, and no
+TallyVally contains **no advertising SDKs, no behavioral-analytics SDKs, and no
 cross-app/cross-site tracking.** We do not build advertising profiles, and we do
 not use the Apple "tracking" mechanisms (App Tracking Transparency is not invoked
 because we do not track). The iOS privacy manifest declares
@@ -211,7 +212,7 @@ we have enabled. Section 3d describes exactly what a report contains.
 - **Data sent to Google** for scanning/chat is retained or not retained according
   to Google's API terms for the tier in use (see Section 4). We keep no
   server-side copy ourselves.
-- **Uninstalling the app** deletes all Tally Vally data on the device itself.
+- **Uninstalling the app** deletes all TallyVally data on the device itself.
 - **One thing to know about backups.** Because your receipts are included in your
   iPhone's backup (Section 3d), a copy can still exist inside a backup you made
   earlier, even after you delete the app. That copy is in **your** Apple account or
@@ -248,7 +249,7 @@ or photo library in the background.
 
 ## 9. Children
 
-Tally Vally is a general-audience financial tool and is **not directed to
+TallyVally is a general-audience financial tool and is **not directed to
 children.** We do not knowingly collect personal information from children.
 
 ## 10. International users and data transfer

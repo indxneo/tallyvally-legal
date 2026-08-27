@@ -1,6 +1,6 @@
-# Tally Vally — legal
+# TallyVally — legal
 
-Public home of the Tally Vally privacy policy.
+Public home of the TallyVally privacy policy.
 
 **Published page:** https://indxneo.github.io/tallyvally-legal/
 

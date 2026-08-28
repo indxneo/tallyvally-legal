@@ -142,7 +142,7 @@ otherwise.
   on Apple's **Advanced Data Protection** it is encrypted end-to-end so not even
   Apple can read it; a computer backup with "Encrypt local backup" ticked never
   involves Apple at all. If you would rather your receipts were not in any backup,
-  you can turn off iCloud Backup for Tally in **Settings › [your name] › iCloud**
+  you can turn off iCloud Backup for TallyVally in **Settings › [your name] › iCloud**
   on your iPhone. _(Android auto-backup to Google Drive remains **disabled** —
   unlike Apple's, it offered no comparable user control at the time of writing.)_
 - **We do send crash reports, and only crash reports, to Firebase Crashlytics
@@ -219,7 +219,7 @@ we have enabled. Section 3d describes exactly what a report contains.
   on **your** computer, never ours, and we cannot see it or reach it. It goes when
   the backup goes: delete the backup in **Settings › [your name] › iCloud › Manage
   Account Storage › Backups**, or delete the backup file on your computer. If you
-  would rather no backup ever contains your receipts, turn Tally off in the same
+  would rather no backup ever contains your receipts, turn TallyVally off in the same
   iCloud settings screen before backing up.
 
 ## 7. Security

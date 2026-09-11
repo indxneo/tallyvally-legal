@@ -6,9 +6,9 @@ title: Privacy Policy — TallyVally
 # Privacy Policy — TallyVally
 
 **Effective date:** July 22, 2026
-**Last updated:** August 26, 2026
+**Last updated:** September 11, 2026
 
-**Applies to:** the TallyVally mobile app for iOS and Android.
+**Applies to:** the TallyVally mobile app for iOS.
 
 ---
 
@@ -108,9 +108,17 @@ When you ask the in-app assistant a question, the app sends to Google Gemini:
 
 By default, that summary includes **aggregate figures** (your total spend, number
 of transactions, average transaction value, total savings, and spending by
-category) **plus**, for the specific store, item, or time period your question
-mentions, the **relevant store names, item names, and shopping dates** needed to
-answer it.
+category) and a short list of the **items you buy most often, by name**. When your
+question names a particular store, item or time period, the **store names and
+shopping dates** needed to answer it are included as well.
+
+**One detail worth being plain about:** the list of your most-purchased item names
+is part of **every** cloud chat question, not only the ones that mention an item.
+Store names and dates are not — those travel only when your own question or the
+recent conversation refers to them. If your receipts record purchases you would
+rather not have read by an AI service, turn on **Aggregate-only AI mode**
+(Section 3c), which sends no item names at all, or use on-device chat where your
+iPhone supports it, which sends nothing for an answer.
 
 The chat path **never sends your card last-4 or payment method.** The grounding
 summary is built so that card and payment fields are excluded — they are simply
@@ -143,8 +151,7 @@ otherwise.
   Apple can read it; a computer backup with "Encrypt local backup" ticked never
   involves Apple at all. If you would rather your receipts were not in any backup,
   you can turn off iCloud Backup for TallyVally in **Settings › [your name] › iCloud**
-  on your iPhone. _(Android auto-backup to Google Drive remains **disabled** —
-  unlike Apple's, it offered no comparable user control at the time of writing.)_
+  on your iPhone.
 - **We do send crash reports, and only crash reports, to Firebase Crashlytics
   (a Google service).** When the app crashes or hits an unexpected error, we
   receive the technical details needed to fix it: the type of error, the line of
@@ -225,12 +232,11 @@ we have enabled. Section 3d describes exactly what a report contains.
 ## 7. Security
 
 - **At rest:** the on-device database lives in the app's private sandbox, which
-  both platforms encrypt at rest by default (iOS Data Protection; Android
-  file-based encryption).
+  iOS encrypts at rest by default (iOS Data Protection).
 - **In transit:** production builds require **HTTPS** for all network requests
-  (Android blocks cleartext by default in release builds; iOS App Transport
-  Security is enforced for public domains). Cleartext is permitted only for
-  local development against a developer's own machine, never in a shipped build.
+  (iOS App Transport Security is enforced for public domains). Cleartext is
+  permitted only for local development against a developer's own machine, never
+  in a shipped build.
 - **Keys:** the Google API key is never placed in the app; it lives only on the
   backend proxy.
 

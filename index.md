@@ -74,13 +74,18 @@ not a place where your data is stored.
 
 ### 3a. Scanning a receipt (AI receipt OCR)
 
-When you scan or upload a receipt, the app sends the **receipt image** to Google
-Gemini, which reads the text and returns the structured fields (store, date,
-totals, line items, and — if printed on the receipt — the payment method and card
-last-4). The extracted result is then saved **on your device**.
+When you scan or upload a receipt, the app sends the **receipt itself** to Google
+Gemini — either the **photo** you took or chose, or a **PDF** you uploaded from
+Files. Gemini reads it and returns the structured fields (store, date, totals,
+line items, and — if printed on the receipt — the payment method and card last-4).
+The extracted result is then saved **on your device**.
 
-**Important and honest detail:** because the whole receipt **image** is sent for
-reading, anything visible on that receipt is part of the transmission. If your
+A PDF is sent **in full, every page**. If a document holds more than the one
+receipt you meant to scan, everything printed in it is part of what is sent.
+
+**Important and honest detail:** because the whole receipt is sent for reading —
+the entire photo, or every page of the PDF — anything visible on it is part of the
+transmission. If your
 receipt prints the **last four digits of your card and the payment method**,
 those are present in the image and are extracted by Gemini. This is why we
 disclose **Payment Info** as data that can leave the device. We never send a full
@@ -96,7 +101,7 @@ up that day's exchange rate, the second so it can manage its own AI budget. None
 the three identifies you, and only the date reaches Google.
 
 Receipt scanning is **user-initiated**: nothing is sent unless you choose to scan
-or upload a specific image.
+or upload a specific file.
 
 ### 3b. Asking the financial assistant (AI chat)
 
@@ -248,6 +253,8 @@ minimize what leaves the device and protect what remains on it.
 - **Camera** — to photograph a physical receipt for scanning.
 - **Photos / Photo Library** — to let you pick an existing receipt screenshot or
   photo to scan.
+- **Files** — to let you choose a PDF receipt to upload. iOS hands the app only
+  the single file you pick; the app cannot browse your documents.
 
 These permissions are used **only** for the receipt-scanning feature you
 initiate, and only on the specific image you choose. We do not access your camera
@@ -267,9 +274,10 @@ chat features, you understand that this processing occurs as described here.
 
 ## 11. Your choices and controls
 
-- **Every scan is your choice.** Scanning a receipt (by camera or by picking an
-  image) is currently the only way to add a transaction to the app, and nothing is
-  ever sent unless you initiate a scan on a specific image. Browsing, searching,
+- **Every scan is your choice.** Scanning a receipt — by camera, by picking an
+  image, or by uploading a PDF — is currently the only way to add a transaction to
+  the app, and nothing is ever sent unless you initiate a scan on a specific
+  file. Browsing, searching,
   and analysing what you have already saved happens entirely on your device.
 - **On a supported iPhone, you can make chat fully private.** In
   **Settings → Chat & Data**, "Use on-device AI for chat" runs the assistant

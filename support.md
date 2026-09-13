@@ -6,8 +6,9 @@ permalink: /support/
 
 # TallyVally support
 
-TallyVally turns a photo of a receipt into a record of what you spent, and what
-you saved. Everything is stored on your iPhone.
+TallyVally turns a receipt into a record of what you spent, and what you saved —
+photograph it, pick a photo you already have, or upload a PDF the store emailed
+you. Everything is stored on your iPhone.
 
 ## Get in touch
 
@@ -19,9 +20,10 @@ have to work with.
 ## Questions we can answer here
 
 **A receipt would not scan.**
-Reading a receipt needs a connection, because the photo is read by an AI service.
-If it fails, nothing is deducted from your scan allowance and you can try again.
-Make sure the whole receipt is in frame and in focus.
+Reading a receipt needs a connection, because it is read by an AI service. If it
+fails, nothing is deducted from your scan allowance and you can try again. For a
+photo, make sure the whole receipt is in frame and in focus. For a PDF, make sure
+it is a receipt or invoice rather than a scanned page of something else.
 
 **Something was read wrong.**
 Tap the receipt in your feed and edit it. The store, the date, the total, the
@@ -54,16 +56,21 @@ every receipt and every line item, which you can open in any spreadsheet app or
 take to a phone that is not an iPhone.
 
 **What leaves my phone?**
-Reading a receipt sends the photo to Google’s Gemini AI, so anything printed on
-that receipt is part of what is sent. If your receipt prints the payment method
-and the last four digits of your card, those are in the image and are read out of
-it. A full card number, PIN, expiry or bank-account number is never sent, because
-none of that is printed on a receipt or held by the app. Cloud chat sends a
-summary of your spending instead, and that summary never includes your card last
-four or your payment method. Settings has a stricter aggregate-only mode that
-sends totals alone, and on a supported iPhone you can switch chat to run entirely
-on the device. The [privacy policy](https://indxneo.github.io/tallyvally-legal/)
-has the full picture.
+Reading a receipt sends it to Google’s Gemini AI — the photo you took, or the
+whole PDF including every page — so anything printed on it is part of what is
+sent. If your receipt prints the payment method and the last four digits of your
+card, those are in it and are read out of it. A full card number, PIN, expiry or
+bank-account number is never sent, because none of that is printed on a receipt or
+held by the app.
+
+Cloud chat sends a summary of your spending instead. That summary never includes
+your card last four or your payment method, but it does include the names of the
+items you buy most often, and it includes them on every question you ask — not
+only the ones that mention an item. If that is more than you want to share,
+Settings has a stricter aggregate-only mode that sends totals alone, and on a
+supported iPhone you can switch chat to run entirely on the device. The
+[privacy policy](https://indxneo.github.io/tallyvally-legal/) has the full
+picture.
 
 ## Privacy
 

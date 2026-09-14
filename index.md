@@ -6,7 +6,7 @@ title: Privacy Policy — TallyVally
 # Privacy Policy — TallyVally
 
 **Effective date:** July 22, 2026
-**Last updated:** September 11, 2026
+**Last updated:** September 13, 2026
 
 **Applies to:** the TallyVally mobile app for iOS.
 
@@ -55,6 +55,15 @@ app's private storage on your device. This includes:
   ····1234"), they are stored so the receipt detail screen can display them. We
   store only the **last four digits** and a coarse method label (e.g. "Visa",
   "Cash") — never a full card number, PIN, CVV, or bank-account number.
+- **A copy of the receipt, if you ask us to keep it** — TallyVally can
+  optionally save the photograph or PDF each receipt was scanned from, so you can
+  look at it later. Photographs are compressed to save space; PDFs are kept
+  exactly as they are. This is **off unless you turn it on** (Settings › Your data
+  › Keep a copy of each receipt), it applies only to receipts scanned after you
+  turn it on, and the files never leave your device except as part of your own
+  iPhone backup. They are stored with the same protection as the database above, they
+  are deleted when you delete the receipt they belong to, and Settings offers a
+  single action that deletes all of them without touching your receipts.
 - **Chat history** — the questions you type to the financial assistant and its
   answers.
 - **App settings** — your theme, your chat-history retention window, and your
@@ -224,6 +233,11 @@ we have enabled. Section 3d describes exactly what a report contains.
 - **Data sent to Google** for scanning/chat is retained or not retained according
   to Google's API terms for the tier in use (see Section 4). We keep no
   server-side copy ourselves.
+- **Kept receipt copies** (if you turned that setting on) stay until you
+  delete the receipt they belong to — which deletes the file with it — or until
+  you use **Settings › Your data › Delete saved copies**, which removes every
+  one of them and leaves your receipts and their amounts untouched. Turning the
+  setting **off** stops new ones being saved and deletes nothing.
 - **Uninstalling the app** deletes all TallyVally data on the device itself.
 - **One thing to know about backups.** Because your receipts are included in your
   iPhone's backup (Section 3d), a copy can still exist inside a backup you made
@@ -237,7 +251,10 @@ we have enabled. Section 3d describes exactly what a report contains.
 ## 7. Security
 
 - **At rest:** the on-device database lives in the app's private sandbox, which
-  iOS encrypts at rest by default (iOS Data Protection).
+  iOS encrypts at rest by default (iOS Data Protection). We additionally apply
+  the strongest protection class, so the database is unreadable while your phone
+  is locked — **and any receipt copies you asked us to keep carry the same
+  protection**, because they are a second copy of the same information.
 - **In transit:** production builds require **HTTPS** for all network requests
   (iOS App Transport Security is enforced for public domains). Cleartext is
   permitted only for local development against a developer's own machine, never

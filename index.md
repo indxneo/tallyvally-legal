@@ -6,7 +6,7 @@ title: Privacy Policy — TallyVally
 # Privacy Policy — TallyVally
 
 **Effective date:** July 22, 2026
-**Last updated:** «SET THIS AT PUBLISH — the day the Android build goes live»
+**Last updated:** September 20, 2026
 
 **Applies to:** the TallyVally mobile app for iOS and Android.
 

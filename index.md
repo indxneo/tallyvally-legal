@@ -6,9 +6,9 @@ title: Privacy Policy — TallyVally
 # Privacy Policy — TallyVally
 
 **Effective date:** July 22, 2026
-**Last updated:** September 13, 2026
+**Last updated:** September 20, 2026
 
-**Applies to:** the TallyVally mobile app for iOS.
+**Applies to:** the TallyVally mobile app for iOS and Android.
 
 ---
 
@@ -60,8 +60,10 @@ app's private storage on your device. This includes:
   look at it later. Photographs are compressed to save space; PDFs are kept
   exactly as they are. This is **off unless you turn it on** (Settings › Your data
   › Keep a copy of each receipt), it applies only to receipts scanned after you
-  turn it on, and the files never leave your device except as part of your own
-  iPhone backup. They are stored with the same protection as the database above, they
+  turn it on, and the files never leave your device. On iPhone they are included
+  in your own device backup along with the rest of your app data; **on Android
+  nothing is backed up at all** (Section 3d). They are stored with the same
+  protection as the database above, they
   are deleted when you delete the receipt they belong to, and Settings offers a
   single action that deletes all of them without touching your receipts.
 - **Chat history** — the questions you type to the financial assistant and its
@@ -132,7 +134,9 @@ Store names and dates are not — those travel only when your own question or th
 recent conversation refers to them. If your receipts record purchases you would
 rather not have read by an AI service, turn on **Aggregate-only AI mode**
 (Section 3c), which sends no item names at all, or use on-device chat where your
-iPhone supports it, which sends nothing for an answer.
+iPhone supports it, which sends nothing for an answer. On-device chat is an
+iPhone feature; Android has no on-device AI option and always uses the cloud
+assistant described above.
 
 The chat path **never sends your card last-4 or payment method.** The grounding
 summary is built so that card and payment fields are excluded — they are simply
@@ -166,10 +170,21 @@ otherwise.
   involves Apple at all. If you would rather your receipts were not in any backup,
   you can turn off iCloud Backup for TallyVally in **Settings › [your name] › iCloud**
   on your iPhone.
+- **On Android, nothing is backed up — and that is deliberate too.** Android's
+  automatic backup to Google Drive is switched **off** for this app, and every
+  part of the app's storage is additionally excluded from phone-to-phone
+  transfer. So your receipts exist **only on the phone you scanned them with**:
+  they are not copied to Google Drive, they never come to us, and they will
+  **not** move to a new phone by themselves. The trade-off is worth stating
+  plainly — no copy of your financial records goes anywhere you did not ask it
+  to, but **if you lose, wipe, or replace that phone, those receipts are gone.**
+  If you want your own copy, use **Settings › Your data › Export your receipts**
+  (Section 11) before you change phones.
 - **We do send crash reports, and only crash reports, to Firebase Crashlytics
   (a Google service).** When the app crashes or hits an unexpected error, we
   receive the technical details needed to fix it: the type of error, the line of
-  code it came from, your device model, and your iOS version. This is how a bug
+  code it came from, your device model, and your iOS or Android version. This is
+  how a bug
   that would otherwise silently lose your data gets found and fixed.
   - **What a crash report never contains:** your receipts, your line items, your
     store names, your totals, your card's last four digits, or your chat history.
@@ -209,7 +224,8 @@ cross-app/cross-site tracking.** We do not build advertising profiles, and we do
 not use the Apple "tracking" mechanisms (App Tracking Transparency is not invoked
 because we do not track). The iOS privacy manifest declares
 `NSPrivacyTracking = false` and an empty tracking-domains list, consistent with
-this statement.
+this statement. On Android the app requests **no advertising identifier** and
+contains no advertising or analytics library of any kind.
 
 **The one third-party SDK in the app is Firebase Crashlytics, and it is here to
 report crashes, not to watch you.** We are naming it rather than hiding it behind
@@ -239,26 +255,36 @@ we have enabled. Section 3d describes exactly what a report contains.
   one of them and leaves your receipts and their amounts untouched. Turning the
   setting **off** stops new ones being saved and deletes nothing.
 - **Uninstalling the app** deletes all TallyVally data on the device itself.
-- **One thing to know about backups.** Because your receipts are included in your
-  iPhone's backup (Section 3d), a copy can still exist inside a backup you made
+- **One thing to know about backups, on iPhone.** Because your receipts are
+  included in your iPhone's backup (Section 3d), a copy can still exist inside a
+  backup you made
   earlier, even after you delete the app. That copy is in **your** Apple account or
   on **your** computer, never ours, and we cannot see it or reach it. It goes when
   the backup goes: delete the backup in **Settings › [your name] › iCloud › Manage
   Account Storage › Backups**, or delete the backup file on your computer. If you
   would rather no backup ever contains your receipts, turn TallyVally off in the same
-  iCloud settings screen before backing up.
+  iCloud settings screen before backing up. **On Android there is no such copy:**
+  nothing is backed up, so uninstalling — or losing the phone — removes your
+  receipts for good unless you exported them first.
 
 ## 7. Security
 
-- **At rest:** the on-device database lives in the app's private sandbox, which
-  iOS encrypts at rest by default (iOS Data Protection). We additionally apply
-  the strongest protection class, so the database is unreadable while your phone
-  is locked — **and any receipt copies you asked us to keep carry the same
-  protection**, because they are a second copy of the same information.
+- **At rest, on iPhone:** the on-device database lives in the app's private
+  sandbox, which iOS encrypts at rest by default (iOS Data Protection). We
+  additionally apply the strongest protection class, so the database is
+  unreadable while your phone is locked — **and any receipt copies you asked us
+  to keep carry the same protection**, because they are a second copy of the same
+  information.
+- **At rest, on Android:** the same files live in the app's private storage,
+  which the system encrypts at rest and which no other app can read. Android
+  offers no equivalent of the extra protection class described above, so **we do
+  not claim one** — your data is protected by your device's own encryption and
+  screen lock.
 - **In transit:** production builds require **HTTPS** for all network requests
-  (iOS App Transport Security is enforced for public domains). Cleartext is
-  permitted only for local development against a developer's own machine, never
-  in a shipped build.
+  (iOS App Transport Security is enforced for public domains; on Android the
+  shipped build blocks unencrypted traffic outright). Cleartext is permitted only
+  for local development against a developer's own machine, never in a shipped
+  build.
 - **Keys:** the Google API key is never placed in the app; it lives only on the
   backend proxy.
 
@@ -270,12 +296,19 @@ minimize what leaves the device and protect what remains on it.
 - **Camera** — to photograph a physical receipt for scanning.
 - **Photos / Photo Library** — to let you pick an existing receipt screenshot or
   photo to scan.
-- **Files** — to let you choose a PDF receipt to upload. iOS hands the app only
-  the single file you pick; the app cannot browse your documents.
+- **Files** — to let you choose a PDF receipt to upload. The system document
+  picker hands the app only the single file you pick; the app cannot browse your
+  documents.
 
 These permissions are used **only** for the receipt-scanning feature you
 initiate, and only on the specific image you choose. We do not access your camera
 or photo library in the background.
+
+**On Android the app declares no camera, photo, or storage permission at all.**
+It asks only for internet access and for billing through Google Play.
+Photographing a receipt hands the job to your phone's own camera app, and
+choosing a photo or a PDF goes through Android's own picker, which passes back
+only the one file you chose.
 
 ## 9. Children
 
@@ -301,7 +334,8 @@ chat features, you understand that this processing occurs as described here.
   directly on your phone, so your questions and spending summary **never leave the
   device at all**. It is off by default and requires a device with Apple
   Intelligence; when it is unavailable the app uses the cloud assistant described
-  in Section 3b.
+  in Section 3b. **This is an iPhone feature.** Android has no on-device AI
+  option, so chat on Android always uses the cloud assistant.
 - Turn on **Aggregate-only AI mode** to send only totals to the assistant.
 - **Take your records with you.** **Settings → Your data → Export your receipts**
   writes every receipt and line item to a spreadsheet file (CSV) and hands it to

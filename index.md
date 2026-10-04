@@ -6,9 +6,14 @@ title: Privacy Policy — TallyVally
 # Privacy Policy — TallyVally
 
 **Effective date:** July 22, 2026
-**Last updated:** September 20, 2026
+**Last updated:** October 4, 2026
 
 **Applies to:** the TallyVally mobile app for iOS and Android.
+
+**Two iPhone versions.** TallyVally 2.0 for iPhone is a rebuilt app. Where it
+handles your data differently from earlier iPhone versions (1.x) and from the
+Android app, this policy says **"on iPhone, from 2.0"**. Everything not marked
+that way applies to every version.
 
 ---
 
@@ -17,18 +22,23 @@ title: Privacy Policy — TallyVally
 - **Your financial data lives on your device.** TallyVally is an offline-first
   expense tracker. Your receipts, line items, store names, dates, amounts, and
   the card last-4 / payment method shown on a receipt are stored **only on your
-  phone**, in an on-device database.
+  phone**, in an on-device database. **On iPhone, from 2.0, the app also keeps a
+  copy in your own iCloud** (on by default, and you can turn it off), so your
+  receipts come back if you delete the app or move to a new iPhone. We can never
+  see that copy.
 - **We do not have a server that stores your data,** and there are **no user
   accounts.** We never receive a copy of your ledger.
 - **One feature uses the cloud: the AI chat, and AI receipt scanning.** To read a
   receipt photo and to answer your chat questions, data is sent to **Google's
-  Gemini AI**, through our backend proxy. This is described in detail below.
+  Gemini AI**, through our backend proxy. **On iPhone, from 2.0, chat questions
+  are answered by Apple's AI where your iPhone supports it**, and by Google's only
+  when Apple's cannot answer. This is described in detail below.
 - **We do not use advertising, behavioral analytics, or third-party tracking
   SDKs.** We do not track you across apps or websites, and we do not sell or
   share your data for advertising.
 - **You are in control.** You can delete any receipt, clear your chat history,
-  set how long chat history is kept, turn on a stricter "aggregate-only" chat
-  privacy mode, **export a copy of all your receipts to a file**, or uninstall the
+  set how long chat history is kept, turn on a stricter "Send only totals to AI"
+  chat mode, **export a copy of all your receipts to a file**, or uninstall the
   app to remove all on-device data.
 
 ---
@@ -45,8 +55,8 @@ anything that leaves the device is disclosed here.
 
 ## 2. Where your data lives
 
-TallyVally stores your data in a local database (SQLite, via Drift) inside the
-app's private storage on your device. This includes:
+TallyVally stores your data in a local database (SQLite) inside the app's
+private storage on your device. This includes:
 
 - **Receipts and transactions** — store name, date, time, totals, subtotal, tax,
   savings/coupons, and the **individual line items** (item name, quantity, unit
@@ -60,28 +70,47 @@ app's private storage on your device. This includes:
   look at it later. Photographs are compressed to save space; PDFs are kept
   exactly as they are. This is **off unless you turn it on** (Settings › Your data
   › Keep a copy of each receipt), it applies only to receipts scanned after you
-  turn it on, and the files never leave your device. On iPhone they are included
-  in your own device backup along with the rest of your app data; **on Android
-  nothing is backed up at all** (Section 3d). They are stored with the same
+  turn it on, and the files never come to us. On iPhone they are included in
+  your own device backup along with the rest of your app data, and **on iPhone,
+  from 2.0**, in the copy in your own iCloud described below, while it is on;
+  **on Android nothing is backed up at all** (Section 3d). They are stored with the same
   protection as the database above, they
   are deleted when you delete the receipt they belong to, and Settings offers a
   single action that deletes all of them without touching your receipts.
 - **Chat history** — the questions you type to the financial assistant and its
   answers.
-- **App settings** — your theme, your chat-history retention window, and your
-  aggregate-only chat preference.
+- **App settings** — your theme, language, home currency, your chat-history
+  retention window, and your "Send only totals to AI" preference.
 
 There are **no user accounts**, no sign-in, and no cloud copy of this data under
 our control. We cannot see your ledger.
 
+**On iPhone, from 2.0: a copy in your own iCloud.** The app keeps a copy of its
+database — your receipts, line items, chat history and settings — and of any
+receipt copies you kept, in its private folder in **your own iCloud Drive**, so
+that they come back if you delete the app or move to a new iPhone: on a phone
+with no receipts, the app offers to bring them back, and does so only if you
+say yes. The copy is in your Apple Account; it never comes to us and we can
+never see it. It is **on by default**. You can turn it off in **Settings › Your
+data › Keep a copy in iCloud**; the app asks first, then deletes the copy in
+your iCloud. If iCloud Drive is off on your iPhone, nothing is copied. Android
+keeps no such copy.
+
 ## 3. What leaves your device, to whom, and why
 
-Only **two features** send data off your device, and both send it to the same
-recipient: **Google's Gemini AI** (`generativelanguage.googleapis.com`). The
+Only **two features** send data off your device to a service we use, and both
+send it to the same recipient: **Google's Gemini AI**
+(`generativelanguage.googleapis.com`). The
 requests are routed through **our backend proxy** — a Supabase-hosted Edge
 Function — which forwards them to Google and returns the result. The proxy exists
 so that the Google API key is never embedded in the app; it is infrastructure,
 not a place where your data is stored.
+
+**On iPhone, from 2.0, three more things can leave your device, none of them to
+us:** chat questions may be answered by **Apple's AI** (Section 3b); the copy in
+**your own iCloud** (Section 2); and, only if your home currency is the
+Kazakhstani tenge, a request for the **National Bank of Kazakhstan's** public
+exchange rates (Section 3e).
 
 ### 3a. Scanning a receipt (AI receipt OCR)
 
@@ -132,7 +161,7 @@ shopping dates** needed to answer it are included as well.
 is part of **every** cloud chat question, not only the ones that mention an item.
 Store names and dates are not — those travel only when your own question or the
 recent conversation refers to them. If your receipts record purchases you would
-rather not have read by an AI service, turn on **Aggregate-only AI mode**
+rather not have read by an AI service, turn on **"Send only totals to AI"**
 (Section 3c), which sends no item names at all, or use on-device chat where your
 iPhone supports it, which sends nothing for an answer. On-device chat is an
 iPhone feature; Android has no on-device AI option and always uses the cloud
@@ -142,11 +171,27 @@ The chat path **never sends your card last-4 or payment method.** The grounding
 summary is built so that card and payment fields are excluded — they are simply
 not part of what the chat feature reads.
 
-### 3c. Aggregate-only chat mode (opt-in, for stricter privacy)
+**On iPhone, from 2.0: Apple's AI answers first.** With **"Use Apple's most
+advanced AI"** on (Settings › Chat & data; on by default) and an iPhone that
+supports Apple Intelligence, your question is answered by Apple's AI on
+**Apple's Private Cloud Compute** servers. It receives your question, the
+recent conversation, a summary of your spending, and the answers to the
+questions it asks your receipts to answer you — for example your spending by
+month or by category, the stores you shopped at, or when and where you last
+bought an item. It never receives your card last-4 or payment method. Apple
+says this data is used only to answer you and is not stored. Only when Apple's
+AI cannot answer does the question go to Google's Gemini as described above.
+Turn the setting off and a simpler Apple AI answers on your iPhone itself, so
+**nothing leaves your device** for an answer. On an iPhone without Apple
+Intelligence, Google's Gemini answers. Each answer says who wrote it
+("Answered by Apple" or "Answered by Google").
 
-In **Settings → Chat & Data** you can turn on **"Aggregate-only AI mode."** When
-it is on, the chat feature sends **only totals and category breakdowns** — no item
-names, no store names, and no dates leave your device. Answers become less
+### 3c. "Send only totals to AI" (opt-in, for stricter privacy)
+
+In **Settings → Chat & data** you can turn on **"Send only totals to AI"**.
+When it is on, the chat feature sends **only totals and category breakdowns** — no item names, no store
+names, and no dates leave your device. **On iPhone, from 2.0**, it limits
+Apple's AI in the same way. Answers become less
 specific in exchange for sending the minimum possible data. This setting is
 **off by default**, so the assistant has the detail it needs unless you choose
 otherwise.
@@ -157,8 +202,8 @@ otherwise.
   provider.
 - We do **not** upload your ledger, receipts, or database **to our servers, or to
   any third-party backup or sync service.** We have no account system and no copy
-  of your data. (Cross-device sync, if it is ever built, will be an explicit,
-  consented, opt-in feature governed by an updated version of this policy.)
+  of your data. The one exception is yours, not ours: **on iPhone, from 2.0**,
+  the copy in your own iCloud (Section 2), which you can turn off.
 - **Your iPhone's own backup does include your receipts, and that is deliberate.**
   Your receipts are stored in the app's own storage on your iPhone. If you use
   iCloud Backup or back your phone up to a computer, they are included in that
@@ -180,8 +225,13 @@ otherwise.
   to, but **if you lose, wipe, or replace that phone, those receipts are gone.**
   If you want your own copy, use **Settings › Your data › Export your receipts**
   (Section 11) before you change phones.
-- **We do send crash reports, and only crash reports, to Firebase Crashlytics
-  (a Google service).** When the app crashes or hits an unexpected error, we
+- **On iPhone, from 2.0, the app contains no crash-reporting SDK and sends no
+  crash reports of its own.** If you allow it (iPhone Settings › Privacy &
+  Security › Analytics & Improvements › Share With App Developers), **Apple**
+  sends us crash reports and diagnostics, with no identity attached. The rest of
+  this item describes Android and iPhone versions before 2.0.
+- **On Android and on iPhone before 2.0, we do send crash reports, and only
+  crash reports, to Firebase Crashlytics (a Google service).** When the app crashes or hits an unexpected error, we
   receive the technical details needed to fix it: the type of error, the line of
   code it came from, your device model, and your iOS or Android version. This is
   how a bug
@@ -202,6 +252,14 @@ otherwise.
     it we could not see a crash that happened on your phone, which meant shipping
     an app that handles money while being unable to tell whether it was breaking.
 
+### 3e. Exchange rates for the Kazakhstani tenge (iPhone, from 2.0)
+
+If your home currency is the **Kazakhstani tenge**, the app downloads the
+**National Bank of Kazakhstan's** public exchange rates, to convert receipts in
+other currencies at the official rate for their own day. Only a **date** is
+sent; nothing about you or your receipts. With any other home currency, the app
+never makes this request.
+
 ## 4. How Google handles the data we send it
 
 The receipt images and chat content described in Section 3 are processed by
@@ -213,7 +271,7 @@ specific **no-retention / no-training Gemini tier** is an operational step the
 developer must complete, and **until that is confirmed we do not claim that
 Google does not retain or use this data.** We send Google the minimum needed for
 the feature to work, we never attach an account or identity to it (there are no
-accounts), and the aggregate-only mode (Section 3c) lets you reduce what is sent
+accounts), and "Send only totals to AI" (Section 3c) lets you reduce what is sent
 to totals only. For details of Google's practices, see Google's API terms and
 privacy documentation.
 
@@ -227,8 +285,9 @@ because we do not track). The iOS privacy manifest declares
 this statement. On Android the app requests **no advertising identifier** and
 contains no advertising or analytics library of any kind.
 
-**The one third-party SDK in the app is Firebase Crashlytics, and it is here to
-report crashes, not to watch you.** We are naming it rather than hiding it behind
+**On iPhone, from 2.0, the app contains no third-party SDK at all.** On Android
+and on iPhone before 2.0, **the one third-party SDK in the app is Firebase
+Crashlytics, and it is here to report crashes, not to watch you.** We are naming it rather than hiding it behind
 the word "analytics", because it is a Google SDK and you are entitled to know it
 is there. What it is *not*: it records no screen views, no taps, no sessions, and
 no usage patterns, and it builds no profile. Firebase's own privacy manifest
@@ -255,6 +314,11 @@ we have enabled. Section 3d describes exactly what a report contains.
   one of them and leaves your receipts and their amounts untouched. Turning the
   setting **off** stops new ones being saved and deletes nothing.
 - **Uninstalling the app** deletes all TallyVally data on the device itself.
+- **The copy in your iCloud (iPhone, from 2.0)** stays in your iCloud until you
+  turn it off in **Settings › Your data › Keep a copy in iCloud** — which deletes
+  it — or delete TallyVally's data from your iCloud storage in iPhone Settings.
+  **Deleting the app does not delete it**: that is what lets your receipts come
+  back. It is in your Apple Account, never ours.
 - **One thing to know about backups, on iPhone.** Because your receipts are
   included in your iPhone's backup (Section 3d), a copy can still exist inside a
   backup you made
@@ -275,6 +339,9 @@ we have enabled. Section 3d describes exactly what a report contains.
   unreadable while your phone is locked — **and any receipt copies you asked us
   to keep carry the same protection**, because they are a second copy of the same
   information.
+- **The copy in your iCloud (iPhone, from 2.0)** is stored and encrypted by Apple
+  in your iCloud Drive; with Apple's **Advanced Data Protection** turned on it is
+  end-to-end encrypted, so not even Apple can read it.
 - **At rest, on Android:** the same files live in the app's private storage,
   which the system encrypts at rest and which no other app can read. Android
   offers no equivalent of the extra protection class described above, so **we do
@@ -329,14 +396,17 @@ chat features, you understand that this processing occurs as described here.
   the app, and nothing is ever sent unless you initiate a scan on a specific
   file. Browsing, searching,
   and analysing what you have already saved happens entirely on your device.
-- **On a supported iPhone, you can make chat fully private.** In
-  **Settings → Chat & Data**, "Use on-device AI for chat" runs the assistant
-  directly on your phone, so your questions and spending summary **never leave the
-  device at all**. It is off by default and requires a device with Apple
-  Intelligence; when it is unavailable the app uses the cloud assistant described
-  in Section 3b. **This is an iPhone feature.** Android has no on-device AI
-  option, so chat on Android always uses the cloud assistant.
-- Turn on **Aggregate-only AI mode** to send only totals to the assistant.
+- **On a supported iPhone, you can make chat fully private.** **From 2.0:** turn
+  off **"Use Apple's most advanced AI"** in **Settings → Chat & data**, and a
+  simpler Apple AI answers on your phone itself, so your questions and spending
+  summary **never leave the device at all** (it requires Apple Intelligence).
+  **Before 2.0:** "Use on-device AI for chat" in the same place does this; it is
+  off by default, and when it is unavailable the app uses the cloud assistant
+  described in Section 3b. **This is an iPhone feature.** Android has no
+  on-device AI option, so chat on Android always uses the cloud assistant.
+- Turn on **"Send only totals to AI"** to send only totals to the assistant.
+- **On iPhone, from 2.0**, turn off **Settings → Your data → Keep a copy in
+  iCloud** to keep your receipts only on your phone (Section 2).
 - **Take your records with you.** **Settings → Your data → Export your receipts**
   writes every receipt and line item to a spreadsheet file (CSV) and hands it to
   your phone's share sheet, so you can save it, mail it to yourself, or move it to

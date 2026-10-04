@@ -45,7 +45,11 @@ so cancelling is done there rather than in the app. You keep Premium until the
 period you have already paid for runs out.
 
 **I changed phone. Where are my receipts?**
-If you backed up your old iPhone, your receipts are inside that backup. Restore
+From TallyVally 2.0, the app keeps a copy of your receipts in your own iCloud
+(Settings, then Your data, then Keep a copy in iCloud — on unless you turned it
+off). Sign in to the same Apple Account on the new iPhone, open TallyVally, and
+it offers to bring them back. Otherwise: if you backed up your old iPhone, your
+receipts are inside that backup. Restore
 the new phone from it and they come back with the rest of your apps. If you did
 not back up, nothing else was keeping a copy. Settings, then Your data, then
 Export your receipts writes a spreadsheet you can keep anywhere.
@@ -63,12 +67,15 @@ card, those are in it and are read out of it. A full card number, PIN, expiry or
 bank-account number is never sent, because none of that is printed on a receipt or
 held by the app.
 
-Cloud chat sends a summary of your spending instead. That summary never includes
+Chat is answered by Apple's AI where your iPhone supports it (from 2.0), and
+otherwise by Google's; each answer says which. Cloud chat sends a summary of
+your spending instead of a receipt. That summary never includes
 your card last four or your payment method, but it does include the names of the
 items you buy most often, and it includes them on every question you ask — not
 only the ones that mention an item. If that is more than you want to share,
-Settings has a stricter aggregate-only mode that sends totals alone, and on a
-supported iPhone you can switch chat to run entirely on the device. The
+Settings has "Send only totals to AI", which sends totals alone, and on a
+supported iPhone you can keep chat entirely on the device (from 2.0, by
+turning off "Use Apple's most advanced AI"). The
 [privacy policy](https://indxneo.github.io/tallyvally-legal/) has the full
 picture.
 

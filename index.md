@@ -6,7 +6,7 @@ title: Privacy Policy — TallyVally
 # Privacy Policy — TallyVally
 
 **Effective date:** July 22, 2026
-**Last updated:** October 4, 2026
+**Last updated:** October 21, 2026
 
 **Applies to:** the TallyVally mobile app for iOS and Android.
 
@@ -26,8 +26,11 @@ that way applies to every version.
   copy in your own iCloud** (on by default, and you can turn it off), so your
   receipts come back if you delete the app or move to a new iPhone. We can never
   see that copy.
-- **We do not have a server that stores your data,** and there are **no user
-  accounts.** We never receive a copy of your ledger.
+- **We do not have a server that stores your receipts or your questions,** and
+  there are **no user accounts.** We never receive a copy of your ledger. **On
+  Android**, to count your free scans and chats, our server keeps a scrambled
+  code for your phone and how many free scans and chats it has used — nothing
+  about what you scanned or asked (Section 3f).
 - **One feature uses the cloud: the AI chat, and AI receipt scanning.** To read a
   receipt photo and to answer your chat questions, data is sent to **Google's
   Gemini AI**, through our backend proxy. **On iPhone, from 2.0, chat questions
@@ -73,7 +76,8 @@ private storage on your device. This includes:
   turn it on, and the files never come to us. On iPhone they are included in
   your own device backup along with the rest of your app data, and **on iPhone,
   from 2.0**, in the copy in your own iCloud described below, while it is on;
-  **on Android nothing is backed up at all** (Section 3d). They are stored with the same
+  **on Android they are never backed up to Google Drive, but they move with your
+  receipts when you transfer your data to a new phone** (Section 3d). They are stored with the same
   protection as the database above, they
   are deleted when you delete the receipt they belong to, and Settings offers a
   single action that deletes all of them without touching your receipts.
@@ -98,7 +102,7 @@ keeps no such copy.
 
 ## 3. What leaves your device, to whom, and why
 
-Only **two features** send data off your device to a service we use, and both
+Only **two features** send what you scanned or asked off your device, and both
 send it to the same recipient: **Google's Gemini AI**
 (`generativelanguage.googleapis.com`). The
 requests are routed through **our backend proxy** — a Supabase-hosted Edge
@@ -111,6 +115,11 @@ us:** chat questions may be answered by **Apple's AI** (Section 3b); the copy in
 **your own iCloud** (Section 2); and, only if your home currency is the
 Kazakhstani tenge, a request for the **National Bank of Kazakhstan's** public
 exchange rates (Section 3e).
+
+**On Android, a few more things leave your device, none of them about your
+receipts:** with each scan or chat, the proof that counts your free scans
+(Section 3f); the tenge rates request, as on iPhone (Section 3e); and Google
+Play's own billing library, which talks to Google (Section 5).
 
 ### 3a. Scanning a receipt (AI receipt OCR)
 
@@ -138,7 +147,9 @@ that a receipt printing no date of its own is filed on *your* day rather than th
 server's. Your **home-currency setting** (for example `USD`) and a
 **free-or-premium flag** go only as far as our own proxy — the first so it can look
 up that day's exchange rate, the second so it can manage its own AI budget. None of
-the three identifies you, and only the date reaches Google.
+the three identifies you, and only the date reaches Google. **On Android**, a
+scan also carries the proof described in Section 3f, which does identify your
+phone (by a scrambled code), so that free scans can be counted.
 
 Receipt scanning is **user-initiated**: nothing is sent unless you choose to scan
 or upload a specific file.
@@ -190,7 +201,9 @@ Intelligence, Google's Gemini answers. Each answer says who wrote it
 
 In **Settings → Chat & data** you can turn on **"Send only totals to AI"**.
 When it is on, the chat feature sends **only totals and category breakdowns** — no item names, no store
-names, and no dates leave your device. **On iPhone, from 2.0**, it limits
+names, and no dates leave your device, only the name of the period you asked
+about (for example "this month"). **On Android**, the earlier messages of the
+conversation are not sent either. **On iPhone, from 2.0**, it limits
 Apple's AI in the same way. Answers become less
 specific in exchange for sending the minimum possible data. This setting is
 **off by default**, so the assistant has the detail it needs unless you choose
@@ -215,25 +228,31 @@ otherwise.
   involves Apple at all. If you would rather your receipts were not in any backup,
   you can turn off iCloud Backup for TallyVally in **Settings › [your name] › iCloud**
   on your iPhone.
-- **On Android, nothing is backed up — and that is deliberate too.** Android's
-  automatic backup to Google Drive is switched **off** for this app, and every
-  part of the app's storage is additionally excluded from phone-to-phone
-  transfer. So your receipts exist **only on the phone you scanned them with**:
-  they are not copied to Google Drive, they never come to us, and they will
-  **not** move to a new phone by themselves. The trade-off is worth stating
-  plainly — no copy of your financial records goes anywhere you did not ask it
-  to, but **if you lose, wipe, or replace that phone, those receipts are gone.**
-  If you want your own copy, use **Settings › Your data › Export your receipts**
-  (Section 11) before you change phones.
+- **On Android, nothing goes to the cloud, but your receipts can move to your
+  new phone.** Android's automatic backup to Google Drive is switched **off** for
+  this app, so your receipts are never copied to Google Drive and never come to
+  us. When you set up a new Android phone and **transfer your data from your old
+  one** (phone to phone, by cable or wirelessly), your receipts, and any receipt
+  copies you kept, **move with it**, so changing phones does not cost you your
+  records. If you **lose or wipe** the phone without such a transfer, they are
+  gone: for a copy of your own, use **Settings › Your data › Export your
+  receipts** (Section 11).
 - **On iPhone, from 2.0, the app contains no crash-reporting SDK and sends no
   crash reports of its own.** If you allow it (iPhone Settings › Privacy &
   Security › Analytics & Improvements › Share With App Developers), **Apple**
   sends us crash reports and diagnostics, with no identity attached. The rest of
-  this item describes Android and iPhone versions before 2.0.
-- **On Android and on iPhone before 2.0, we do send crash reports, and only
+  next item covers Android, and the one after it iPhone versions before 2.0.
+- **On Android, the app contains no crash-reporting SDK and sends no crash
+  reports.** When something fails, it writes a short technical note in its own
+  storage on your phone (the newest 50 are kept). A note never contains your
+  receipts, items, store names, amounts or chat; long digit runs and access
+  tokens are removed from it; and it is **never sent anywhere** — it stays on
+  your phone, where only a developer with your phone connected to a computer
+  could read it.
+- **On iPhone before 2.0, we do send crash reports, and only
   crash reports, to Firebase Crashlytics (a Google service).** When the app crashes or hits an unexpected error, we
   receive the technical details needed to fix it: the type of error, the line of
-  code it came from, your device model, and your iOS or Android version. This is
+  code it came from, your device model, and your iOS version. This is
   how a bug
   that would otherwise silently lose your data gets found and fixed.
   - **What a crash report never contains:** your receipts, your line items, your
@@ -252,13 +271,43 @@ otherwise.
     it we could not see a crash that happened on your phone, which meant shipping
     an app that handles money while being unable to tell whether it was breaking.
 
-### 3e. Exchange rates for the Kazakhstani tenge (iPhone, from 2.0)
+### 3e. Exchange rates for the Kazakhstani tenge (iPhone, from 2.0, and Android)
 
 If your home currency is the **Kazakhstani tenge**, the app downloads the
 **National Bank of Kazakhstan's** public exchange rates, to convert receipts in
 other currencies at the official rate for their own day. Only a **date** is
 sent; nothing about you or your receipts. With any other home currency, the app
 never makes this request.
+
+### 3f. Counting free scans and chats (Android)
+
+Free scans and chats on Android are counted by **our server**, so that deleting
+and reinstalling the app does not reset them. To do this, each scan and each
+chat question carries:
+
+- **A scrambled code for your phone.** The app takes the identifier Android
+  gives this app on your phone and turns it into a code that cannot be turned
+  back (a SHA-256 hash). The identifier itself never leaves your phone. The code
+  stays the same if you reinstall the app, and changes if you factory-reset the
+  phone.
+- **A proof from Google Play that the request comes from the real TallyVally
+  app on a real phone** (Google Play Integrity). Our server sends this proof to
+  Google to check it.
+- **If you subscribe**, your Google Play **purchase token**, which our server
+  sends to Google Play to confirm the subscription is active.
+
+**What our server keeps:** your phone's code, with how many free scans and
+free chats it has used (the welcome pack, and this month's), and when. This is
+kept **for good**, so the welcome pack is not given twice. For a subscription,
+it keeps a scrambled form of the purchase token (never the token itself), when
+the subscription ends, and which phone codes used it each month. To stop
+abuse, it also counts requests per **internet (IP) address** in short time
+windows; these counters are not linked to your phone code. **None of this
+contains anything you scanned or asked.** Google handles the Play Integrity
+and Google Play checks under its own privacy policy.
+
+**On iPhone, free scans and chats are counted on the phone itself**; none of
+this applies there.
 
 ## 4. How Google handles the data we send it
 
@@ -283,10 +332,19 @@ not use the Apple "tracking" mechanisms (App Tracking Transparency is not invoke
 because we do not track). The iOS privacy manifest declares
 `NSPrivacyTracking = false` and an empty tracking-domains list, consistent with
 this statement. On Android the app requests **no advertising identifier** and
-contains no advertising or analytics library of any kind.
+contains no advertising or analytics library.
 
-**On iPhone, from 2.0, the app contains no third-party SDK at all.** On Android
-and on iPhone before 2.0, **the one third-party SDK in the app is Firebase
+**On Android, the app's only third-party code is Google's own Play
+libraries:** **Google Play Billing**, which every app that sells subscriptions
+through Google Play uses, and **Google Play Integrity** (Section 3f). Google
+Play Billing includes Google's own diagnostics component, which sends Google
+technical information about how the billing library itself is working (to
+`firebaselogging.googleapis.com`). We do not receive that information, and
+Google handles it under its own privacy policy. There is no Firebase
+Crashlytics and no Google Analytics in the Android app.
+
+**On iPhone, from 2.0, the app contains no third-party SDK at all.** On iPhone
+before 2.0, **the one third-party SDK in the app is Firebase
 Crashlytics, and it is here to report crashes, not to watch you.** We are naming it rather than hiding it behind
 the word "analytics", because it is a Google SDK and you are entitled to know it
 is there. What it is *not*: it records no screen views, no taps, no sessions, and
@@ -307,7 +365,9 @@ we have enabled. Section 3d describes exactly what a report contains.
   history** at any time.
 - **Data sent to Google** for scanning/chat is retained or not retained according
   to Google's API terms for the tier in use (see Section 4). We keep no
-  server-side copy ourselves.
+  server-side copy of your receipts or questions ourselves.
+- **On Android, the counts of your free scans and chats** are kept on our
+  server with your phone's scrambled code, for good (Section 3f).
 - **Kept receipt copies** (if you turned that setting on) stay until you
   delete the receipt they belong to — which deletes the file with it — or until
   you use **Settings › Your data › Delete saved copies**, which removes every
@@ -327,9 +387,9 @@ we have enabled. Section 3d describes exactly what a report contains.
   the backup goes: delete the backup in **Settings › [your name] › iCloud › Manage
   Account Storage › Backups**, or delete the backup file on your computer. If you
   would rather no backup ever contains your receipts, turn TallyVally off in the same
-  iCloud settings screen before backing up. **On Android there is no such copy:**
-  nothing is backed up, so uninstalling — or losing the phone — removes your
-  receipts for good unless you exported them first.
+  iCloud settings screen before backing up. **On Android there is no cloud
+  copy:** uninstalling the app, or losing the phone, removes your receipts for
+  good unless you exported them first or moved them to a new phone (Section 3d).
 
 ## 7. Security
 
@@ -372,7 +432,10 @@ initiate, and only on the specific image you choose. We do not access your camer
 or photo library in the background.
 
 **On Android the app declares no camera, photo, or storage permission at all.**
-It asks only for internet access and for billing through Google Play.
+It asks for internet access, billing through Google Play, and network status
+(whether you are online); for **notifications**, only when you choose a reminder
+before a subscription or bill is charged; and to **start after the phone
+restarts**, only so those reminders are set again.
 Photographing a receipt hands the job to your phone's own camera app, and
 choosing a photo or a PDF goes through Android's own picker, which passes back
 only the one file you chose.

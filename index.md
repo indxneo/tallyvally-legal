@@ -6,7 +6,7 @@ title: Privacy Policy — TallyVally
 # Privacy Policy — TallyVally
 
 **Effective date:** July 22, 2026
-**Last updated:** October 21, 2026
+**Last updated:** October 28, 2026
 
 **Applies to:** the TallyVally mobile app for iOS and Android.
 
@@ -28,9 +28,9 @@ that way applies to every version.
   see that copy.
 - **We do not have a server that stores your receipts or your questions,** and
   there are **no user accounts.** We never receive a copy of your ledger. **On
-  Android**, to count your free scans and chats, our server keeps a scrambled
-  code for your phone and how many free scans and chats it has used — nothing
-  about what you scanned or asked (Section 3f).
+  Android, and on iPhone from 2.2.1**, to count your free scans and chats, our
+  server keeps a code for your phone and how many free scans and chats it has
+  used — nothing about what you scanned or asked (Sections 3f and 3g).
 - **One feature uses the cloud: the AI chat, and AI receipt scanning.** To read a
   receipt photo and to answer your chat questions, data is sent to **Google's
   Gemini AI**, through our backend proxy. **On iPhone, from 2.0, chat questions
@@ -116,6 +116,10 @@ us:** chat questions may be answered by **Apple's AI** (Section 3b); the copy in
 Kazakhstani tenge, a request for the **National Bank of Kazakhstan's** public
 exchange rates (Section 3e).
 
+**On iPhone, from 2.2.1,** each scan or chat also carries the proof that counts
+your free scans, and our server asks Apple once about your iPhone (Section 3g).
+None of it is about your receipts.
+
 **On Android, a few more things leave your device, none of them about your
 receipts:** with each scan or chat, the proof that counts your free scans
 (Section 3f); the tenge rates request, as on iPhone (Section 3e); and Google
@@ -147,9 +151,10 @@ that a receipt printing no date of its own is filed on *your* day rather than th
 server's. Your **home-currency setting** (for example `USD`) and a
 **free-or-premium flag** go only as far as our own proxy — the first so it can look
 up that day's exchange rate, the second so it can manage its own AI budget. None of
-the three identifies you, and only the date reaches Google. **On Android**, a
-scan also carries the proof described in Section 3f, which does identify your
-phone (by a scrambled code), so that free scans can be counted.
+the three identifies you, and only the date reaches Google. **On Android, and
+on iPhone from 2.2.1**, a scan also carries the proof described in Sections 3f
+and 3g, which does identify your phone (by a code), so that free scans can be
+counted.
 
 Receipt scanning is **user-initiated**: nothing is sent unless you choose to scan
 or upload a specific file.
@@ -306,8 +311,40 @@ windows; these counters are not linked to your phone code. **None of this
 contains anything you scanned or asked.** Google handles the Play Integrity
 and Google Play checks under its own privacy policy.
 
-**On iPhone, free scans and chats are counted on the phone itself**; none of
-this applies there.
+**On iPhone before 2.2.1, free scans and chats are counted on the phone
+itself**, and none of this applies there. From 2.2.1, see Section 3g.
+
+### 3g. Counting free scans and chats (iPhone, from 2.2.1)
+
+From version 2.2.1, free scans and chats on iPhone are counted by **our server**
+too, so that deleting and reinstalling the app does not reset them. To do this,
+each scan and each chat question carries:
+
+- **A random code for your phone.** The app makes it once and keeps it in your
+  iPhone's keychain, so it stays the same if you reinstall the app. It is not
+  your phone's serial number or any identifier Apple assigns to your phone.
+- **A proof that the request comes from the real TallyVally app on a real
+  iPhone** (Apple's App Attest). A key made inside your iPhone for this
+  installation signs each request, and our server checks the signature.
+- **If you subscribe**, Apple's signed record of your purchase, which our
+  server checks with Apple to confirm the subscription is active.
+
+The first time, our server also asks Apple (Apple's **DeviceCheck**) whether
+this iPhone has used TallyVally's welcome pack before, and tells Apple that it
+now has. Apple keeps this as two yes-or-no answers, and the month they last
+changed, for this iPhone and our app only; they contain nothing about you.
+
+**What our server keeps:** your phone's code, with how many free scans and
+free chats it has used (the welcome pack, and this month's), and when; and, for
+each installation, its key's public half, a counter that stops a request from
+being sent twice, and Apple's receipt for the key. This is kept **for good**, so
+the welcome pack is not given twice. For a subscription, it keeps a scrambled
+form of the purchase's ID (never the record itself), when the subscription
+ends, and which phone codes used it each month. As on Android, it also counts
+requests per **internet (IP) address** in short time windows; these counters
+are not linked to your phone code. **None of this contains anything you scanned
+or asked.** Apple handles App Attest, DeviceCheck and the App Store under its
+own privacy policy.
 
 ## 4. How Google handles the data we send it
 
@@ -333,6 +370,11 @@ because we do not track). The iOS privacy manifest declares
 `NSPrivacyTracking = false` and an empty tracking-domains list, consistent with
 this statement. On Android the app requests **no advertising identifier** and
 contains no advertising or analytics library.
+
+**On iPhone, from 2.2.1,** the app uses Apple's **App Attest** and
+**DeviceCheck** (Section 3g). They are part of iOS, not third-party code, and
+are used only to count free scans and chats, never for advertising or
+tracking.
 
 **On Android, the app's only third-party code is Google's own Play
 libraries:** **Google Play Billing**, which every app that sells subscriptions
@@ -366,8 +408,9 @@ we have enabled. Section 3d describes exactly what a report contains.
 - **Data sent to Google** for scanning/chat is retained or not retained according
   to Google's API terms for the tier in use (see Section 4). We keep no
   server-side copy of your receipts or questions ourselves.
-- **On Android, the counts of your free scans and chats** are kept on our
-  server with your phone's scrambled code, for good (Section 3f).
+- **On Android, and on iPhone from 2.2.1, the counts of your free scans and
+  chats** are kept on our server with your phone's code, for good (Sections 3f
+  and 3g).
 - **Kept receipt copies** (if you turned that setting on) stay until you
   delete the receipt they belong to — which deletes the file with it — or until
   you use **Settings › Your data › Delete saved copies**, which removes every
